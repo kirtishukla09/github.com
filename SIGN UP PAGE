@@ -1,0 +1,19 @@
+Setup
+To use this, copy contents of src folder to your web server root (assuming you have LAMP, WAMP or MAMP setup. if not, do it first.)
+You have to create a MySQL user named 'user' and password 'password' (which you can change in php files in src)
+To do this, run mysql server in a command line shell and enter following SQL:
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';
+FLUSH PRIVILEGES;
+You also have to create a database named login and a table named list by entering following SQL commands:
+CREATE DATABASE login;
+USE login;
+CREATE TABLE list (
+    id int not null auto_increment,
+    user_name varchar(255) not null,
+    first_name varchar(255) not null,
+    last_name varchar(255) not null,
+    email varchar(255) not null,
+    password varchar(255) not null,
+    PRIMARY KEY (id)
+);
